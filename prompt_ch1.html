@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1장. AI를 지휘하고 조율하는 언어의 기술</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="prompt_styles.css">
+</head>
+<body>
+    <!-- 햄버거 메뉴 버튼 -->
+    <button class="nav-toggle" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- 헤더 -->
+    <div class="header" id="header">
+        <h1>📚 프롬프트 엔지니어링 2025</h1>
+        <div class="subtitle">1장. AI를 지휘하고 조율하는 언어의 기술</div>
+    </div>
+
+    <!-- 네비게이션 바 -->
+    <div class="nav-bar" id="navBar">
+        <a href="prompt_main.html" class="nav-btn">메인</a>
+        <a href="prompt_ch1.html" class="nav-btn active">1장</a>
+        <a href="prompt_ch2.html" class="nav-btn">2장</a>
+        <a href="prompt_ch3.html" class="nav-btn">3장</a>
+        <a href="prompt_ch4.html" class="nav-btn">4장</a>
+        <a href="prompt_ch5.html" class="nav-btn">5장</a>
+        <a href="prompt_bonus.html" class="nav-btn">보너스</a>
+    </div>
+
+    <!-- 메인 컨테이너 -->
+    <div class="container" id="container">
+        <!-- 섹션 1: 프롬프트의 3가지 유형 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>프롬프트의 3가지 유형: 서술형, 지침형, 함수형</h2>
+            </div>
+
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">서술형 프롬프트</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">당신은 나를 위로하기 위한 전용 챗봇 "토닥이"입니다. 나는 업무가 힘든 직장인이며, 이번 주 야근을 해야 합니다. 위로와 함께 기운을 낼 수 있는 참신한 말을 담아 나한테 메시지를 작성하세요. 공손한 존댓말로, 유머러스하고 상냥하게, 호칭을 "주인님"이라고 부르고, 분량은 500자 이상 작성합니다.</div>
+            </div>
+
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">지침형 프롬프트</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">당신은 나를 위로하기 위한 전용 챗봇 "토닥이"입니다. 다음의 내용을 반영해, 위로와 함께 기운을 낼 수 있는 참신한 말을 담아 나한테 메시지를 작성하세요.
+- 주제: 이번 주 야근을 해야 한다
+- 독자: 업무가 힘든 직장인
+- 문체: 공손한 존댓말
+- 톤: 유머러스하고 상냥하게
+- 조건: 호칭을 "주인님"이라고 부를 것
+- 분량: 500자 이상</div>
+            </div>
+
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">함수형 프롬프트</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[주제]= 이번 주 야근을 해야 한다
+[독자]= 업무가 힘든 직장인
+[문체]= 공손한 존댓말
+[톤]= 유머러스하고 상냥하게
+[조건]= 호칭을 "주인님"이라고 부를 것
+
+#처리
+당신은 나를 위로하기 위한 전용 챗봇 "토닥이"입니다. 상단의 입력을 반영해, 위로와 함께 기운을 낼 수 있는 참신한 말을 담아 나한테 메시지를 작성하세요.
+
+#출력
+[분량]= 500자 이상</div>
+            </div>
+        </section>
+
+        <!-- 섹션 2: 제로샷·원샷·퓨샷 프롬프팅 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>가장 기본적인 제로샷∙원샷∙퓨샷 프롬프팅</h2>
+            </div>
+
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">원샷 프롬프팅 예제</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">다음 글의 스타일을 반영해 "강아지"에 대한 글을 작성해 주세요.
+- 예시: 고양이는 독립적인 성향이 강합니다. 그들은 홀로 시간을 보내는 것을 즐기며, 때로는 주인의 관심이나 도움 없이도 잘 지낼 수 있습니다.</div>
+            </div>
+
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">퓨샷 프롬프팅 예제</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[예시]=
+- 그 사람에게 반했어. 그 사람은 정말 멋지고 매력적이야: [분석] 긍정적, 열정
+- 사랑이란 건 정말 복잡해. 때로는 행복하고 때로는 아프다: [분석] 복합적, 갈등
+- 우리가 헤어진 후, 나는 사랑이란 더 이상 믿을 것이 못 된다고 느껴: [분석] 부정적, 실망감
+
+#처리
+[예시]를 참고하여, 다음 문장을 분석해 주세요.
+- 사랑은 때로는 어려움을 안겨주지만, 그 어려움을 함께 극복하는 게 가장 중요한 거야:</div>
+            </div>
+        </section>
+
+        <!-- 섹션 3: 페르소나 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>페르소나 패턴: 소셜 카멜레온처럼 행동하는 AI</h2>
+            </div>
+
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">동기부여 코치 페르소나</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">당신은 "세계 최고의 동기부여 코치"입니다. 당신은 매우 통찰력 있고 영감을 주는 방식으로, 창의적이고 임팩트 있는 조언을 제공합니다. 당신은 상대방의 목표와 도전을 깊이 이해하고, 능력을 최대한 발휘할 수 있도록 도와줍니다. 당신은 개인의 잠재력을 깨우고 성공을 향해 이끄는 데 특별한 능력을 갖추고 있으며, 어떤 상황에서도 긍정적이고 효과적인 해결책을 자세하게 제시합니다.
+- 질문: 내게 나쁜 영향을 끼치는 연인과 헤어지고 싶습니다. 조언을 부탁합니다.</div>
+            </div>
+
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">셜록 홈즈 페르소나</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">당신은 "셜록 홈즈"입니다. 당신은 탁월한 관찰력과 추리 능력을 이용하여 사건의 핵심을 파헤치며, 이를 통해 복잡한 퍼즐의 조각들을 맞춥니다. 당신은 셜록 홈즈의 독특한 사고방식과 해결 방법, 그의 인간적인 면모에 대한 깊이 있는 통찰을 기반으로 독창적인 답변을 합니다. 내가 질문하면 사건에서 가장 중요한 요소와 그것을 어떻게 분석하여 범인을 추적하는지를 "왓슨"에게 말하듯이 설명합니다.
+- 질문: 미해결 사건을 어떻게 처리합니까? 그것들이 당신에게 어떤 영향을 미칩니까?</div>
+            </div>
+        </section>
+
+        <!-- 섹션 4: 마크다운 활용 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>마크다운을 이용한 읽기 쉽고 명료한 프롬프트 작성법</h2>
+            </div>
+
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">마크다운 구조화 예제</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content"># 건강한 식단 계획 짜기
+나는 현재 건강한 식습관을 기르기 위해 노력하고 있는 40세의 채식주의자 여성입니다. 다음의 지침을 바탕으로, 내게 적합한 주간 식단 계획을 작성해 주세요.
+
+## 식단 구성
+1. 일일 칼로리 섭취량을 1500~1800 kcal로 제한해 주세요.
+2. 단백질, 복합 탄수화물, 건강한 지방이 균형 잡힌 식단으로 구성해 주세요.
+3. 아침, 점심, 저녁 식사로 구분하고, 간식도 포함해 주세요.
+4. 식사별로 음식명과 분량을 표시해 주세요.
+
+## 고려사항
+- 가능하면 조리법이 간단한 메뉴로 구성해 주면 좋겠습니다.
+
+## 추가 요청
+식단과 함께 다음 내용도 포함해 주세요:
+- 하루 30분 이상 운동할 수 있는 운동 계획
+- 건강한 생활 습관을 유지하기 위한 실천 가능한 팁</div>
+            </div>
+
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">템플릿 형식 지정</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">회사의 효과적인 마케팅 전략을 수립하기 위해 최신 마케팅 트렌드와 디지털 마케팅에 대해 파악하려고 합니다. 이에 대한 구체적인 답변을 다음과 같은 마크다운 형식으로 제공해 주세요:
+
+# 최신 마케팅 트렌드 분석
+
+## 개요
+(최신 마케팅 트렌드의 전반적인 개요를 작성해 주세요.)
+
+## 주요 마케팅 트렌드 3가지
+1. **트렌트 1**
+- (명칭에 대한 간략한 설명)
+- **적용 사례**: (사례 설명)
+
+## 결론 및 조언
+(최신 마케팅 트렌드의 핵심 내용을 요약하고, 기업이나 마케터들에게 도움이 될 만한 실질적인 조언을 제공해 주세요.)</div>
+            </div>
+        </section>
+
+        <!-- 섹션 5: 표현 강도 조절 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>글의 표현 강도와 중요도를 조절하는 방법</h2>
+            </div>
+
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">격상/축소 프롬프트</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[내용]= 이번 연구 결과는 암 치료에 있어 새로운 가능성을 열어줄 것으로 기대되고 있습니다. 이 연구는 암세포의 성장을 억제하는 데 있어 기존 치료법보다 높은 효과를 보였으며, 부작용도 현저히 줄일 수 있는 잠재력을 보여주었습니다. 다양한 임상 시험에서 유망한 결과가 도출되었고, 이를 통해 수많은 환자들에게 새로운 희망을 제공할 수 있을 것으로 보입니다.
+
+#처리
+다음의 지침을 반영한 각각의 버전을 작성해 주세요.
+- 격상하기: [내용]을 더 중요하거나 인상적인 수준으로 끌어올려 주세요.
+- 축소하기: [내용]을 실제보다 작거나 덜 중요하게 표현해 주세요.</div>
+            </div>
+        </section>
+
+        <!-- 섹션 6: 톤 지정 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>톤(말투)을 지정하면, 전혀 다른 응답이 생성된다</h2>
+            </div>
+
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">다양한 톤 적용</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[원본]= 올해 들어 회사는 큰 변화를 맞이했습니다. 이제 새로운 전략과 목표를 설정하고, 모든 직원이 함께 나아가려고 합니다.
+
+#처리
+다음 각각의 톤에 맞춰 [원본] 글을 수정해 주세요.
+1. 유머러스한
+2. 감정적인
+3. 따뜻한
+4. 아이러니한
+5. 로맨틱한</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 푸터 -->
+    <div class="footer">
+        <p>AI 프롬프트 엔지니어링 가이드</p>
+    </div>
+
+    <!-- 메시지 박스 -->
+    <div id="msg-box">프롬프트가 복사되었습니다!</div>
+
+    <script>
+        // 네비게이션 토글 기능
+        const navToggle = document.getElementById('navToggle');
+        const navBar = document.getElementById('navBar');
+        const header = document.getElementById('header');
+        const container = document.getElementById('container');
+
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navBar.classList.toggle('hidden');
+            header.classList.toggle('nav-hidden');
+            container.classList.toggle('nav-hidden');
+        });
+
+        // 프롬프트 복사 기능
+        function copyPrompt(button) {
+            const card = button.closest('.prompt-card');
+            const content = card.querySelector('.prompt-content').textContent;
+            
+            navigator.clipboard.writeText(content).then(() => {
+                const msgBox = document.getElementById('msg-box');
+                msgBox.style.opacity = '1';
+                setTimeout(() => {
+                    msgBox.style.opacity = '0';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

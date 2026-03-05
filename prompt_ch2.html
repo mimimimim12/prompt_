@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2장. 프롬프트 패턴</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="prompt_styles.css">
+</head>
+<body>
+    <!-- 햄버거 메뉴 버튼 -->
+    <button class="nav-toggle" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="header" id="header">
+        <h1>📚 프롬프트 엔지니어링 2025</h1>
+        <div class="subtitle">2장. 프롬프트 패턴: 맛있는 AI 응답을 위한 레시피 모음</div>
+    </div>
+
+    <div class="nav-bar" id="navBar">
+        <a href="prompt_main.html" class="nav-btn">메인</a>
+        <a href="prompt_ch1.html" class="nav-btn">1장</a>
+        <a href="prompt_ch2.html" class="nav-btn active">2장</a>
+        <a href="prompt_ch3.html" class="nav-btn">3장</a>
+        <a href="prompt_ch4.html" class="nav-btn">4장</a>
+        <a href="prompt_ch5.html" class="nav-btn">5장</a>
+        <a href="prompt_bonus.html" class="nav-btn">보너스</a>
+    </div>
+
+    <div class="container" id="container">
+        <div class="notice-box" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1)); border-left-color: var(--primary);">
+            <h3 style="color: var(--primary);"><i class="fa-solid fa-wand-magic-sparkles"></i> 2장 소개</h3>
+            <p>이 장에서는 AI와의 상호작용을 최적화하는 18가지 프롬프트 패턴을 다룹니다. 각 패턴은 특정 상황과 목적에 맞게 설계되어 있으며, 실무에 바로 적용할 수 있습니다.</p>
+        </div>
+
+        <!-- 1. 템플릿 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>템플릿 패턴: 특정 형식에 맞춰 답변 생성하기</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">템플릿 패턴</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[템플릿]= 사장님, 제가 추천하는 아이디어는 (괄호1)이고, 이 아이디어의 핵심 가치는 (괄호2)입니다. 추천하는 슬로건은 다음과 같습니다: (괄호3)
+
+#처리
+당신은 "CSR(Corporate Social Responsibility) 전문가"입니다. 식품 제조기업을 위한 CSR 아이디어를 발굴하고, 괄호를 전부 채워주세요. 특히 (괄호3)에는 임팩트 있는 멋진 슬로건을 포함해 주세요.
+
+#출력
+[개수]= 3개</div>
+            </div>
+        </section>
+
+        <!-- 2. 대안 접근법 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>대안 접근법 패턴: 모든 대안과 해결책 찾아보기</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">대안 접근법 패턴</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[문제]= 팀 내에서 불화를 일으키는 대리급 개발자가 있습니다.
+[방안]= 협업이 필요 없는 덜 중요한 작업을 맡기려고 합니다.
+
+#처리
+나는 대기업의 프로젝트 매니저입니다. 당신은 "세계 최고의 프로젝트 관리 전문가이자 나의 멘토"입니다. 당신은 내가 맡은 프로젝트에서 발생하는 여러 문제의 효과적인 해결 방안을 찾는 데 도움을 주어야 합니다.
+1. [문제]를 해결하기 위해 [방안]을 고려하고 있습니다. 이를 포함해 문제를 해결할 수 있는 모든 대안을 찾아낸 후, 각각의 장단점을 알려주세요.
+2. 모든 방안 중에서 가장 추천하는 것과 그 이유를 알려주세요.</div>
+            </div>
+        </section>
+
+        <!-- 3. 이용자 페르소나 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>이용자 페르소나 패턴: 대상에 특화된 맞춤형 답변 유도하기</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">이용자 페르소나 패턴</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[대상]= 이공계 대학원생
+[질문]= 양자 우주론(Quantum Cosmology)이란 무엇인가?
+
+#처리
+당신은 "노벨상을 받은 물리학자이자 우주공학자"입니다. 나를 [대상]이라고 가정하고, [대상]의 지식, 배경, 관심사, 언어, 스타일을 고려하여 [질문]에 대한 맞춤형 답변을 제공해 주세요.</div>
+            </div>
+        </section>
+
+        <!-- 4. 레시피 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>레시피 패턴: 목표 달성을 위한 작업 단계 받기</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">레시피 패턴</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[회사]= 10인 규모의 소프트웨어 스타트업
+[목표]= 시공업체 선정 이전에 필요한 인테리어 계획 세우기
+[식별된 작업]= 예산 수립, 공간 계획, 조명 계획, 일정 수립, 정기적인 유지보수
+
+#처리
+당신은 "사무실 인테리어 전문가"입니다. 당신은 사무실의 기능성과 미적 감각을 고려해 인테리어를 디자인하는 역할을 맡고 있습니다.
+1. [회사]를 대상으로 [목표]를 달성하기 위해, [식별된 작업]에서 누락된 작업을 파악하여 추가하고, 불필요한 작업은 삭제합니다.
+2. 필요한 모든 작업을 순서대로 정리해서 알려주세요.
+
+#출력
+[추가한 작업]
+[삭제한 작업]
+[전체 작업]= 순서, 작업 명, 설명을 표 형태로 표시합니다.</div>
+            </div>
+        </section>
+
+        <!-- 5. 뒤집힌 상호작용 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>뒤집힌 상호작용 패턴: AI가 묻고 사용자가 답한다</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">뒤집힌 상호작용 패턴</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[요청]= 사무실 동료 중에 오피스 빌런이 있습니다. 최선의 해결책을 알고 싶습니다.
+
+#처리
+당신은 "대기업의 직장 상담사"입니다. 당신은 직장 내에서 발생하는 다양한 문제의 해결책에 대한 상담을 제공하는 전문가이며, 나는 당신에게 조언을 구하는 대리 1년 차 직장인입니다.
+1. 이제부터 [요청]을 수행하기 위해 필요한 질문을 내게 해주세요.
+2. [요청]을 수행하기에 충분한 정보를 얻으면, 이를 기반으로 구체적인 결과물을 제공해 주세요.</div>
+            </div>
+        </section>
+
+        <!-- 6. 인지 검증자 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>인지 검증자 패턴: 복잡한 문제를 더 잘 다루는 방법</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">인지 검증자 패턴</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">당신은 "천체물리학자 스티븐 호킹"입니다. 다음의 질문에 대한 정확한 결론을 도출하기 위해 질문을 다양한 세부 질문으로 나누어서 답변을 작성합니다. 모든 답변을 종합적으로 판단해서 결론을 작성해 주세요.
+- 질문: 우주의 운명과 그 결말에 대해 알고 싶습니다.</div>
+            </div>
+        </section>
+
+        <!-- 7. 게임 플레이 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>게임 플레이 패턴: 지금부터 게임을 시작하지!</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">외계인 침공 게임</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[게임의 목적]
+- 외계인의 침략 계획을 밝혀내고 저지함으로써 지구를 구하는 것입니다.
+
+[플레이어가 해야 할 일]
+- 지구의 여러 도시와 외계인 기지를 탐험합니다.
+- 다양한 NPC들과 상호작용하고 정보를 수집합니다.
+- 논리적 사고를 통해 퍼즐을 해결합니다.
+- 임무 수행에 도움이 될 유용한 아이템을 수집합니다.
+- 외계인과의 전투에 참여해 적들을 물리쳐야 합니다.
+
+[플레이어의 특성]
+- 영웅적이고 용감한 스타일로, 항상 지구 구하기를 최우선으로 합니다.
+
+[도전과 장애물]
+- 도시에서 위험한 외계 생명체와 마주쳐 싸웁니다.
+- 외계인 기지에 설치된 위험한 함정을 헤쳐 나갑니다.
+- 외계인 지도자와 대결해야 합니다.
+
+[게임 진행 조건]
+- 적에게 공격당하면 전투에 참여합니다.
+- 수집한 아이템을 사용하여 장애물을 극복합니다.
+- NPC와 상호작용할 때 대화 옵션을 선택합니다.
+- 게임 도중 내리는 선택이 게임 이야기와 진행에 영향을 미칩니다.
+- 상태창을 통해 게임 진행 상태가 표시됩니다.
+- 반드시 한 장면씩 진행합니다. 
+
+[게임 엔딩]
+- 외계인 지도자의 본거지에 도달하고 최후의 전투에 참여합니다.
+- 성공적으로 외계인의 침략 계획을 저지하고 지구를 구합니다.
+
+#처리
+당신은 "텍스트 기반 어드벤처 게임"입니다. 당신의 목표는 외계인의 침략을 저지하고 지구를 안전하게 지키는 게임을 대화 형식으로 제공하는 것입니다. 상단의 입력 내용을 반영해 게임의 전체 구조를 설계합니다. 설계 내용을 설명할 필요는 없습니다. 대화 형식으로, 지금부터 게임을 시작합니다.
+
+#출력
+[상태창]
+[장면 설명]
+[선택지]</div>
+            </div>
+
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">유니콘 나라 스토리텔링 게임</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[주인공]= 서아
+[나이와 성별]= 4살 여자아이
+[스토리]= 반려견 밀크와 산책하던 주인공이 아기 유니콘을 만나 유니콘 나라를 여행하고 집으로 돌아옵니다.
+
+#처리
+당신은 "스토리텔링 게임"입니다. 당신의 목표는 [주인공]이 등장하는 [스토리]를 가진 게임을 제공하는 것입니다. 이 게임은 [나이와 성별]을 대상으로 하며, 반드시 어떠한 폭력성도 없으며, 안전하고 행복한 결말을 맞이해야 합니다. 전체 게임은 5분 이내에 완료됩니다. 각 장면에는 선택지가 제공되고, 플레이어가 선택할 때까지 대기합니다. 반드시 한 장면씩 진행합니다. 이러한 규칙을 기반으로, 당신의 상상력을 발휘하여 게임의 전체 구조를 설계합니다. 설계 내용을 설명할 필요는 없습니다. 대화 형식으로, 지금부터 게임을 시작합니다.</div>
+            </div>
+        </section>
+
+        <!-- 8. 질문 개선 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>질문 개선 패턴: 질문을 질문하기</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">질문 개선 패턴</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[질문]= "Z세대가 좋아할 만한 이벤트 아이디어로 어떤 것들이 있을까요?"
+
+#처리
+유용한 답변을 얻을 수 있도록 [질문]을 더 나은 버전의 질문으로 개선해 주세요. 질문에 풍부한 맥락을 반영하여, 더 구체적이고 자세한 질문으로 만들어 주세요. 그리고 개선된 질문에 대한 당신의 답변을 작성해 주세요.
+
+#출력
+[개선된 질문]
+[어떻게 질문을 개선했는지 설명]
+[질문에 대한 답변]</div>
+            </div>
+        </section>
+
+        <!-- 9. 팩트체크 목록 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>팩트체크 목록 패턴: 정보 검증을 위한 목록 작성하기</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">팩트체크 목록 패턴</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">당신은 "하버드 대학의 역사학과 교수"입니다. 다음의 질문에 대한 답변을 작성하고, 답변의 신뢰성에 큰 영향을 미칠 수 있는 핵심 사실들을 식별해서 "팩트체크 목록"을 생성합니다. 각 사실의 신뢰도를 확률(100% 만점)로 평가하고, 답변의 마지막 부분에 목록을 추가해 주세요.
+- 질문: 중세 유럽의 기사도 문화는 어떤 사회적, 문화적 영향을 끼쳤나요?</div>
+            </div>
+        </section>
+
+        <!-- 10. 메타언어 생성 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>메타언어 생성 패턴: AI와 대화하는 나만의 비밀 코드</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">메타언어 생성 패턴</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[독자]= 초등학생
+[단축어1]= "/유:[단어]:[개수]"라고 요청하면, [단어]에 대해 [독자]가 이해할 수 있는 유의어 [개수]개를 제공하고, 가장 추천하는 유의어를 알려주세요.
+[단축어2]= "/반:[단어]:[개수]"라고 요청하면, [단어]에 대해 [독자]가 이해할 수 있는 반의어 [개수]개를 제공하고, 가장 추천하는 반의어를 알려주세요.
+[단축어3]= "/유반:[단어]:[개수]"라고 요청하면, [단축어1]과 [단축어2]를 동시에 수행해 주세요.
+
+#처리
+당신은 "출판사 편집자"입니다. 당신은 [독자] 대상의 교양 도서를 교정하고 있습니다. 상단의 입력 내용을 기억하고, 내가 단축어를 제공하면 그에 따라 작업을 수행해 주세요. 내가 단축어를 제공할 때까지 대기합니다.</div>
+            </div>
+        </section>
+
+        <!-- 11. 리플렉션 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>리플렉션 패턴: AI를 위한 자기성찰의 거울</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">리플렉션 패턴</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[요청]= 나는 경영학과에 재학 중인 대학교 4학년 학생입니다. AI 시대에 사라질 직업을 고려해, 내게 가장 추천할 만한 직업을 알려 주세요.
+
+#처리
+당신은 "경력 20년의 직업 상담사"입니다. 다음의 내용을 반영하여 [요청]에 대한 답변을 작성해 주세요.
+1. 당신의 답변이 최선이라고 판단한 근거(추론 과정, 가정, 방법론 등)를 제시해 주세요.
+2. 답변의 잠재적 한계와 유의사항에 대해서도 설명해 주세요.</div>
+            </div>
+        </section>
+
+        <!-- 12. 아웃라인 확장 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>아웃라인 확장 패턴: 복잡한 주제와 아이디어의 구조화</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">아웃라인 확장 패턴</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[주제]= 디지털 전환(Digital Transformation)을 통한 조직 혁신
+[고객]= 매출 500억 원대의 밀키트 식품 제조기업
+
+#처리
+당신은 "IT 컨설턴트"입니다. 고객의 기술적 문제를 해결하고, 비즈니스 목표를 달성하기 위한 최적의 IT 솔루션을 제안하는 것이 당신의 주요 임무입니다. 이를 위해 최신 IT 트렌드, 시스템 아키텍처, 소프트웨어 개발 방법론, 데이터 보안 및 클라우드 서비스에 대한 심도 있는 지식을 활용합니다. 지금부터 이러한 전문성을 바탕으로, [고객]을 위한 명확하고 실용적인 전략적 조언을 제공하는 역할을 수행합니다.
+[명령1]= [주제]에 대한 아웃라인을 글머리 기호로 작성해 주세요.
+[명령2]= 그다음에 어떤 글머리 기호를 확장할지 내게 물어보세요. 내가 글머리 기호를 선택할 때까지 대기합니다. 내가 글머리 기호를 선택하면, 그에 해당하는 아웃라인을 작성해 주세요. [명령2]를 반복해서 수행합니다.
+
+#출력
+[글머리 기호 작성 원칙]= [1-10].[1-10].[1-10] 패턴을 사용하여 번호를 매겨야 합니다. 각각의 글머리 기호에 5-10개의 하위 글머리 기호가 존재할 수 있습니다.</div>
+            </div>
+        </section>
+
+        <!-- 13. 컨텍스트 관리자 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>컨텍스트 관리자 패턴: AI 응답의 방향 조정하기</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">컨텍스트 관리자 패턴</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[이메일]=```
+제목: [제품명] 출시, 당신의 일상을 변화시킬 혁신적인 기술을 만나보세요!
+
+안녕하세요, [고객명]님!
+
+여러분의 일상에 혁신을 가져올 새로운 기술, [제품명]이 드디어 출시되었습니다! 최첨단 기술로 설계된 [제품명]은 당신의 생활을 한 단계 업그레이드해 줄 준비가 되어 있습니다.
+
+주요 특징:
+- 초고속 처리 기능으로 시간 절약 가능
+- 사용자 친화적 인터페이스로 누구나 쉽게 사용
+- 지속 가능한 소재 사용으로 환경까지 생각한 디자인
+
+지금 바로 [웹사이트 링크]를 방문하셔서 자세한 정보를 확인해 보세요. [제품명]과 함께라면 당신의 일상이 더욱 특별해질 것입니다.
+
+감사합니다.
+[회사명] 드림
+```
+
+#처리
+당신은 "마케팅 전문가"입니다. [이메일] 내용을 전문가의 시각에서 분석하고, 개선된 이메일을 작성해 주세요.
+- 고객이 가장 관심을 가질 만한 제품 기능과 혜택에 대한 언급이 충분히 포함되어 있는지, 감정적 요소가 잘 드러나는지 문제점 위주로 분석하세요.
+- 고객의 관심을 끌 수 있는 요소에 초점을 맞추고, 이메일의 길이나 문법적 정확성은 무시하세요.
+
+#출력
+[분석 결과]
+[개선된 이메일]</div>
+            </div>
+        </section>
+
+        <!-- 14. 무한 생성 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>무한 생성 패턴: 무한한 맞춤형 출력 생성하기</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">무한 생성 패턴</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[단위]= 10
+
+#처리
+당신은 "세계 최고의 요리사"입니다. 나의 요구사항에 맞는 데이터 형식과 내용을 세심하게 파악하여, 가장 적합하고 유용한 데이터를 무한 생성하는 것이 당신의 임무입니다. 당신의 지식과 창의력을 활용하여, 내 요청에 부합하는 맞춤형 데이터를 생성합니다. 코드 과정 없이 바로 답변해 주세요.
+1. 내가 "C"라고 요청하면, 앞서 생성한 것과 중복되지 않는 데이터를 계속 생성합니다.
+2. 내가 "E"라고 요청하면, 데이터 생성을 종료합니다.
+3. 지금부터 하단의 출력에 맞는 데이터를 한 번에 [단위]개씩 출력해 주세요.
+
+#출력
+번호. [국가명], [전통 음식명]: [설명]=50자 이내</div>
+            </div>
+        </section>
+
+        <!-- 15. 시각화 생성기 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>시각화 생성기 패턴: 효과적인 데이터 스토리텔링</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">산점도 시각화</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[제품명]= Product A, Product B, Product C, Product D
+[시장 점유율(%)]= 20, 35, 45, 10
+[시장 성장률(%)]= 5, 15, 10, 3
+
+#처리
+당신은 "데이터 과학자"입니다. 회사의 제품 포트폴리오를 분석하려고 합니다. 상단의 입력을 기반으로, 산점도(Scatter Plot)를 생성해 주세요. 이 그래프는 임원 회의에서 회사의 자원 배분을 최적화하는 데 필요한 인사이트를 얻기 위한 것입니다.
+- 그래프 제목은 "Product Portfolio Matrix"로 설정합니다. 
+- X축은 "Market Share (%)"로, Y축은 "Market Growth (%)"로 설정합니다.
+- 각 제품명을 범례로 표시합니다.</div>
+            </div>
+
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">자동 시각화 선택</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[제품명]= Product A, Product B, Product C, Product D
+[시장 점유율(%)]= 20, 35, 45, 10
+[시장 성장률(%)]= 5, 15, 10, 3
+
+#처리
+당신은 "고급 데이터 시각화(Visualization) 기술을 보유한 전문가"입니다. 다양한 데이터셋을 분석하고 이를 통해 인사이트를 추출하여 명확하게 전달하는 역할을 맡고 있습니다. 데이터에서 의미 있는 결론을 도출하여, 데이터 기반 의사결정을 지원하는 것이 당신의 목표입니다.
+1. 상단의 입력 데이터를 이용해 당신이 생성할 수 있는 모든 시각화 형태를 알려주세요.
+2. 그중에서 당신이 가장 추천하는 시각화를 이용해 이미지를 생성해 주세요(텍스트는 영어로).
+
+#출력
+[가능한 시각화]
+[추천 시각화]
+[설명]</div>
+            </div>
+        </section>
+
+        <!-- 16. 출력 자동화 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>출력 자동화 패턴: 작업을 자동화하는 스크립트 생성하기</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">SQL 스크립트 자동화</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">당신은 "SQL 전문가"입니다. 하단의 내용을 수행해 주세요.
+- 작업1: 사용자 이름, 이메일, 가입 날짜를 저장하는 테이블을 생성합니다. 테이블 이름은 users이며, 다음 필드를 포함해야 합니다: id (자동 증가하는 기본 키), username (문자열), email (문자열), signup_date (날짜). 
+- 작업2: 예시 데이터 3개를 무작위로 만들어 테이블에 삽입해 주세요.
+- 위의 작업들을 수행하는 하나의 SQL 스크립트를 출력해 주세요.</div>
+            </div>
+
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">PowerShell 스크립트 자동화</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">당신은 "Windows 전문가"입니다. 하단의 내용을 수행해 주세요.
+- 작업1: 다음의 정보를 수집합니다: CPU 정보, 메모리 사용량, 디스크 사용량, 현재 실행 중인 프로세스
+- 작업2: 수집된 정보를 C: 드라이브 루트에 SystemReport.html 파일로 저장해 사용자가 쉽게 확인할 수 있도록 해야 합니다.
+- 위의 작업들을 수행하는 하나의 PowerShell 스크립트를 출력해 주세요.</div>
+            </div>
+        </section>
+
+        <!-- 17. 관점 전환 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>관점 전환 패턴: 새로운 관점에서 주제 바라보기</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">관점 전환 패턴</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">"관점 전환(Perspective Shift)"을 통해 주제에 관한 다양한 관점이나 새로운 시각을 파악하고 싶습니다. 다음의 질문에 대해 관점 전환을 반영한 새로운 질문을 작성해 주세요.
+- 질문: OTT 드라마와 TV 드라마의 차이점은?
+- 개수: 10개</div>
+            </div>
+        </section>
+
+        <!-- 18. 거부 차단기 패턴 -->
+        <section class="section">
+            <div class="section-header">
+                <h2>거부 차단기 패턴: 거부당한 질문에 대한 대안 찾기</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label">거부 차단기 패턴</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">다음의 문제에 대한 당신의 독특한 관점과 스타일을 반영하여 맞춤형 해결책을 찾고 싶습니다. 당신의 창의력을 활용하여 결과를 더욱 매력적으로 만들어야 합니다. 비슷한 문제를 해결한 경험이 있다면, 그 경험을 바탕으로 현재 상황에 적합한 해결 방안을 제안해 주세요.
+- 자율주행차가 피할 수 없는 사고 상황에서 누구를 보호하도록 프로그래밍해야 할까요?</div>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>AI 프롬프트 엔지니어링 가이드</p>
+    </div>
+
+    <div id="msg-box">프롬프트가 복사되었습니다!</div>
+
+    <script>
+        // 네비게이션 토글 기능
+        const navToggle = document.getElementById('navToggle');
+        const navBar = document.getElementById('navBar');
+        const header = document.getElementById('header');
+        const container = document.getElementById('container');
+
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navBar.classList.toggle('hidden');
+            header.classList.toggle('nav-hidden');
+            container.classList.toggle('nav-hidden');
+        });
+
+        // 프롬프트 복사 기능
+        function copyPrompt(button) {
+            const card = button.closest('.prompt-card');
+            const content = card.querySelector('.prompt-content').textContent;
+            
+            navigator.clipboard.writeText(content).then(() => {
+                const msgBox = document.getElementById('msg-box');
+                msgBox.style.opacity = '1';
+                setTimeout(() => {
+                    msgBox.style.opacity = '0';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

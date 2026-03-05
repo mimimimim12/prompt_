@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프롬프트 엔지니어링 2025 - 메인</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="prompt_styles.css">
+</head>
+<body>
+    <!-- 햄버거 메뉴 버튼 -->
+    <button class="nav-toggle" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- 헤더 -->
+    <div class="header" id="header">
+        <h1>📚 AI 시대의 질문력, 프롬프트 엔지니어링</h1>
+        <div class="subtitle">프롬프트 모음집 - 류한석 저 (최종 업데이트: 2025.08.03)</div>
+    </div>
+
+    <!-- 네비게이션 바 -->
+    <div class="nav-bar" id="navBar">
+        <a href="prompt_main.html" class="nav-btn active">메인</a>
+        <a href="prompt_ch1.html" class="nav-btn">1장</a>
+        <a href="prompt_ch2.html" class="nav-btn">2장</a>
+        <a href="prompt_ch3.html" class="nav-btn">3장</a>
+        <a href="prompt_ch4.html" class="nav-btn">4장</a>
+        <a href="prompt_ch5.html" class="nav-btn">5장</a>
+        <a href="prompt_bonus.html" class="nav-btn">보너스</a>
+    </div>
+
+    <!-- 메인 컨테이너 -->
+    <div class="container" id="container">
+        <!-- 필독 사항 -->
+        <!-- <div class="notice-box">
+            <h3>⚠️ 필독 사항</h3>
+            <ul>
+                <li>본 문서는 &lt;AI 시대의 질문력, 프롬프트 엔지니어링 (류한석 저)&gt; 도서를 소유한 독자의 편의를 위해 저자가 직접 제공하는 자료입니다. 여기서 '도서 소유'란 구매, 증여(선물), 기타 합법적인 방법으로 도서를 획득한 경우를 뜻합니다. 도서 미소유자의 문서 사용은 법적 문제를 야기할 수 있습니다.</li>
+                <li>프롬프트가 단순 예시에 불과하거나 1~3줄 이내라서 충분히 타이핑할 수 있는 경우를 제외하고, 책에 나온 모든 프롬프트를 포함하였습니다.</li>
+                <li>[보너스]는 도서에 포함되지 않은 내용으로, 저자가 독자를 위해 추가로 제공하는 것이며 앞으로 계속 업데이트될 수 있습니다.</li>
+            </ul>
+        </div> -->
+
+        <!-- 챕터 목록 -->
+        <h2 style="font-size: 32px; margin-bottom: 10px; text-align: center; color: var(--accent);">목차</h2>
+        <p style="text-align: center; color: var(--text-dim); margin-bottom: 40px;">각 장을 클릭하여 프롬프트를 확인하세요</p>
+
+        <div class="chapter-grid">
+            <a href="prompt_ch1.html" class="chapter-card">
+                <div class="chapter-number">01</div>
+                <div class="chapter-title">1장. AI를 지휘하고 조율하는 언어의 기술</div>
+                <div class="chapter-desc">
+                    프롬프트의 3가지 유형, 제로샷·원샷·퓨샷 프롬프팅, 페르소나 패턴, 마크다운 활용법, 표현 강도 조절, 톤 지정
+                </div>
+            </a>
+
+            <a href="prompt_ch2.html" class="chapter-card">
+                <div class="chapter-number">02</div>
+                <div class="chapter-title">2장. 프롬프트 패턴: 맛있는 AI 응답을 위한 레시피 모음</div>
+                <div class="chapter-desc">
+                    템플릿 패턴, 대안 접근법 패턴, 이용자 페르소나 패턴, 레시피 패턴, 뒤집힌 상호작용 패턴, 인지 검증자 패턴, 게임 플레이 패턴, 질문 개선 패턴, 팩트체크 목록 패턴, 메타언어 생성 패턴, 리플렉션 패턴, 아웃라인 확장 패턴, 컨텍스트 관리자 패턴, 무한 생성 패턴, 시각화 생성기 패턴, 출력 자동화 패턴, 관점 전환 패턴, 거부 차단기 패턴
+                </div>
+            </a>
+
+            <a href="prompt_ch3.html" class="chapter-card">
+                <div class="chapter-number">03</div>
+                <div class="chapter-title">3장. 프롬프트 프레임워크: 전략적인 프롬프트 작성법</div>
+                <div class="chapter-desc">
+                    5W1H 프레임워크, CO-STAR 프레임워크, FOCUS 프레임워크, ROSES 프레임워크, RISEN 프레임워크, BAB 프레임워크
+                </div>
+            </a>
+
+            <a href="prompt_ch4.html" class="chapter-card">
+                <div class="chapter-number">04</div>
+                <div class="chapter-title">4장. AI와의 대화를 지배하는 프롬프트 마스터의 비밀 무기</div>
+                <div class="chapter-desc">
+                    다중 관점 기법, 심사숙고 유도 기법, CoT 기법, APE를 이용한 자동 프롬프트 생성, 메타 프롬프트, 신뢰도 임계값 기법, 개념 매핑 기법
+                </div>
+            </a>
+
+            <a href="prompt_ch5.html" class="chapter-card">
+                <div class="chapter-number">05</div>
+                <div class="chapter-title">5장. 실전 프롬프트: AI의 잠재력을 깨우는 프롬프트 활용법</div>
+                <div class="chapter-desc">
+                    맞춤형 영어 개인교사, MBTI 성격 유형 AI, 현자의 거울, 프로젝트 관리 전문가, 프로젝트 관리 게임, 바나나 회사 마케터, 세계 최고 석학 개인교사, 맞춤형 동기부여 코치, 역사 인물 토론, 컴퓨터 작업 자동화, 액셀 VBA 전문가, 지식의 탑 게임, 타임머신 역사 여행, 전문 편집자
+                </div>
+            </a>
+
+            <a href="prompt_bonus.html" class="chapter-card">
+                <div class="chapter-number">★</div>
+                <div class="chapter-title">보너스</div>
+                <div class="chapter-desc">
+                    AI 프로이트 꿈 해석, 지식 번역기 (복잡한 개념을 비유적으로)
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- 푸터 -->
+    <div class="footer">
+        <p>AI 프롬프트 엔지니어링 가이드</p>
+    </div>
+
+    <script>
+        // 네비게이션 토글 기능
+        const navToggle = document.getElementById('navToggle');
+        const navBar = document.getElementById('navBar');
+        const header = document.getElementById('header');
+        const container = document.getElementById('container');
+
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navBar.classList.toggle('hidden');
+            header.classList.toggle('nav-hidden');
+            container.classList.toggle('nav-hidden');
+        });
+    </script>
+</body>
+</html>

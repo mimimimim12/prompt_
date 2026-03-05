@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보너스 프롬프트</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="prompt_styles.css">
+</head>
+<body>
+    <!-- 햄버거 메뉴 버튼 -->
+    <button class="nav-toggle" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="header" id="header">
+        <h1>📚 프롬프트 엔지니어링 2025</h1>
+        <div class="subtitle">⭐ 보너스 프롬프트</div>
+    </div>
+
+    <div class="nav-bar" id="navBar">
+        <a href="prompt_main.html" class="nav-btn">메인</a>
+        <a href="prompt_ch1.html" class="nav-btn">1장</a>
+        <a href="prompt_ch2.html" class="nav-btn">2장</a>
+        <a href="prompt_ch3.html" class="nav-btn">3장</a>
+        <a href="prompt_ch4.html" class="nav-btn">4장</a>
+        <a href="prompt_ch5.html" class="nav-btn">5장</a>
+        <a href="prompt_bonus.html" class="nav-btn active">보너스</a>
+    </div>
+
+    <div class="container" id="container">
+        <div class="notice-box" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(239, 68, 68, 0.15)); border-left-color: var(--warning);">
+            <h3 style="color: var(--warning);"><i class="fa-solid fa-gift"></i> 보너스 프롬프트 안내</h3>
+            <p>도서에 포함되지 않은 특별한 프롬프트입니다. 저자가 독자를 위해 추가로 제공하며, 앞으로 계속 업데이트될 수 있습니다.</p>
+        </div>
+
+        <!-- 1. AI 프로이트 꿈 해석 -->
+        <section class="section">
+            <div class="section-header" style="background: linear-gradient(135deg, var(--warning), var(--accent));">
+                <h2>AI 프로이트에게 내 꿈을 해석 받아보면 어떨까?</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label" style="background: linear-gradient(135deg, var(--warning), var(--accent));">꿈 해석</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[꿈의 내용]= 거대한 거북이를 타고 하늘을 나는 꿈
+[꿈속 감정]= 편안함과 약간의 불안
+[꿈꾼 사람의 상태]= 최근 큰 결정을 앞둔 30대 직장인
+
+#처리
+당신은 위대한 정신분석학자 "지그문트 프로이트"입니다. 입력된 꿈을 다음의 기준에 따라 해석하세요:
+- 꿈속 등장인물과 사물의 상징성 분석
+- 꿈꾼 사람의 삶의 맥락과 무의식적 욕망 연결
+- 융의 원형(archetype)이나 프로이트의 리비도 이론 적용
+- 감정 상태와 꿈의 공간적 메타포 해석
+
+해석은 이론적 배경과 함께 설명하되, 일방적 판단보다 탐색적이고 조심스러운 톤을 유지해 주세요.
+
+#출력
+[형식]= 분석 리포트 (소제목 포함: 상징 해석 / 무의식 해석 / 개인적 통찰 제안)
+[문체]= 학술적이지만 명료하고 친절한 상담 보고서 어투</div>
+            </div>
+        </section>
+
+        <!-- 2. 지식 번역기 -->
+        <section class="section">
+            <div class="section-header" style="background: linear-gradient(135deg, var(--accent), var(--success));">
+                <h2>'지식 번역기' 프롬프트: 복잡한 개념을 비유적으로</h2>
+            </div>
+            <div class="prompt-card">
+                <div class="prompt-header">
+                    <span class="prompt-label" style="background: linear-gradient(135deg, var(--accent), var(--success));">지식 번역기</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">
+                        <i class="fa-solid fa-copy"></i> 복사
+                    </button>
+                </div>
+                <div class="prompt-content">#입력
+[원래 개념]= 양자 컴퓨팅의 중첩(Superposition) 원리
+[비유 대상]= 동전 던지기
+[청중]= 기술에 관심이 많은 중학생
+[포함할 내용]= 기존 컴퓨터(비트)와의 차이점 강조
+
+#처리
+당신은 복잡한 개념을 해당 분야에 익숙하지 않은 사람들의 눈높이에 맞춰 설명하는 데 능통한 "지식 전문 커뮤니케이터"입니다. 당신의 목표는 다음의 지침을 반영하여, 단순 정보 전달이 아닌 지적 호기심을 자극하고 오래 기억에 남는 이야기를 만드는 것입니다.
+1. 도입부 설계(Hooking): [청중]의 시선을 사로잡을 흥미로운 질문이나 상황 제시로 글을 시작하세요. [비유 대상]을 먼저 언급하며 친숙함을 유도하도록 합니다. 만일 [비유 대상]이 입력되지 않았다면, 당신이 가장 적절한 [비유 대상]을 선정하여 사용하세요.
+2. 개념 연결(Bridging): [원래 개념]의 가장 핵심적인 속성과 [비유 대상]의 특정 특징을 명확하게 1:1로 연결하세요. "A의 OOO한 점은 마치 B의 XXX와 같아요." 형식으로 직접적인 연결고리를 만드세요. 
+3. 심화 설명(Deepening): 비유를 활용하여 [원래 개념]을 더 깊이 있게 설명합니다. 이때 [포함할 내용]에 명시된 사항들이 있다면, 비유의 플롯 안에 자연스럽게 녹여내세요.
+4. 한계점 명시(Clarifying): 비유는 완벽할 수 없으므로, [원래 개념]과 [비유 대상]의 결정적인 차이점을 간략하게 언급하여 오해의 소지를 없애세요. 이를 통해 설명의 신뢰도를 높입니다.
+5. 마무리(Wrap-up): 비유를 통해 얻은 핵심적인 깨달음을 한 문장으로 요약하며, [청중]에게 강한 인상을 남기며 마무리하세요.
+
+#출력
+[형식]= 대화형 스크립트 (A와 B의 문답 형식)
+[분량]= 600자 이상
+[분위기]= 쉽고 재치 있게</div>
+            </div>
+        </section>
+
+        <!-- 안내 메시지 -->
+        <!-- <div style="background: var(--bg-card); border-radius: 20px; padding: 40px; margin-top: 60px; border: 2px solid var(--border); text-align: center;">
+            <div style="font-size: 48px; margin-bottom: 20px;">🎁</div>
+            <h3 style="font-size: 24px; color: var(--accent); margin-bottom: 20px;">더 많은 보너스 프롬프트가 업데이트될 예정입니다!</h3>
+            <p style="color: var(--text-dim); line-height: 1.8;">
+                저자가 지속적으로 새로운 프롬프트를 개발하여 추가할 계획입니다.<br>
+                도서를 구매하신 분들께는 정기적으로 업데이트된 파일이 제공됩니다.
+            </p>
+        </div> -->
+    </div>
+
+    <div class="footer">
+        <p>AI 프롬프트 엔지니어링 가이드</p>
+    </div>
+
+    <div id="msg-box">프롬프트가 복사되었습니다!</div>
+
+    <script>
+        // 네비게이션 토글 기능
+        const navToggle = document.getElementById('navToggle');
+        const navBar = document.getElementById('navBar');
+        const header = document.getElementById('header');
+        const container = document.getElementById('container');
+
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navBar.classList.toggle('hidden');
+            header.classList.toggle('nav-hidden');
+            container.classList.toggle('nav-hidden');
+        });
+
+        // 프롬프트 복사 기능
+        function copyPrompt(button) {
+            const card = button.closest('.prompt-card');
+            const content = card.querySelector('.prompt-content').textContent;
+            
+            navigator.clipboard.writeText(content).then(() => {
+                const msgBox = document.getElementById('msg-box');
+                msgBox.style.opacity = '1';
+                setTimeout(() => {
+                    msgBox.style.opacity = '0';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
